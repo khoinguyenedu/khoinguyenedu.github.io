@@ -119,6 +119,33 @@ header p {
   line-height: 1.6;
 }
 
+.hero-address {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 22px;
+  padding: 10px 22px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: all 0.25s;
+  backdrop-filter: blur(4px);
+}
+.hero-address:hover {
+  background: rgba(255,255,255,0.28);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+}
+.loc-icon {
+  width: 18px; height: 18px;
+  flex-shrink: 0;
+  fill: currentColor;
+}
+
 /* ── SECTION ── */
 .wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
 .section { padding: 60px 0; }
@@ -250,10 +277,119 @@ footer strong { color: #FFD54F; }
 @keyframes fadeUp { to { opacity: 1; transform: none; } }
 .d1{animation-delay:.1s} .d2{animation-delay:.2s} .d3{animation-delay:.3s} .d4{animation-delay:.4s}
 
-@media(max-width:680px){
-  nav { padding: 10px 16px; }
+@media (max-width: 680px) {
+  /* ── NAV ── */
+  nav { padding: 10px 14px; gap: 10px; }
   nav img.logo-img { height: 42px; }
-  .nav-name { font-size: 0.95rem; }
+  .nav-name { font-size: 0.92rem; letter-spacing: 0; }
+  .nav-sub { font-size: 0.6rem; letter-spacing: 1px; }
+  .nav-phone { padding: 8px 14px; font-size: 0.85rem; gap: 6px; }
+  .nav-phone .ph-icon { width: 20px; height: 20px; }
+
+  /* ── HERO ── */
+  header { min-height: 280px; padding: 32px 14px; }
+  .hero-content { padding: 22px 18px; max-width: 100%; }
+  .hero-badge { font-size: 0.7rem; padding: 6px 14px; margin-bottom: 16px; letter-spacing: 1.2px; }
+  header h1 { font-size: clamp(1.6rem, 8vw, 2.4rem); }
+  header p { font-size: 1rem; margin-top: 10px; }
+  .hero-address {
+    font-size: 0.82rem;
+    padding: 8px 14px;
+    gap: 6px;
+    margin-top: 16px;
+    text-align: left;
+    line-height: 1.35;
+  }
+  .loc-icon { width: 16px; height: 16px; }
+
+  /* ── SECTIONS ── */
+  .wrap { padding: 0 14px; }
+  .section { padding: 40px 0; }
+  .sec-title { font-size: 1.25rem; }
+
+  /* ── TEACHERS ── */
+  .teachers-grid { gap: 14px; }
+  .teacher-card { padding: 22px 18px; }
   .t-avatar { width: 96px; height: 96px; }
-  thead th:nth-child(3), td:nth-child(3) { display: none; }
+  .t-tag { font-size: 0.92rem; padding: 8px 20px; }
+
+  /* ── SCHEDULE: card-layout ── */
+  .sched-header { padding: 14px 16px; gap: 10px; }
+  .sched-header h2 { font-size: 0.95rem; }
+  .sched-icon { font-size: 1.3rem; }
+
+  .sched-block table,
+  .sched-block tbody,
+  .sched-block tbody tr,
+  .sched-block tbody td {
+    display: block;
+    width: 100%;
+  }
+  .sched-block thead { display: none; }
+
+  .sched-block tbody tr {
+    padding: 14px 16px;
+    border-bottom: 1px solid #F1F5F9;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 12px;
+    row-gap: 6px;
+    background: var(--white);
+  }
+  .sched-block tbody tr:hover { background: var(--white); }
+  .sched-block tbody tr:last-child { border-bottom: none; }
+
+  .sched-block td {
+    padding: 4px 0;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.88rem;
+  }
+
+  /* Grade cell: full-width header */
+  .sched-block td:first-child {
+    grid-column: 1 / -1;
+    padding: 2px 0 10px;
+    border-bottom: 1px dashed var(--cyan-md);
+    margin-bottom: 2px;
+  }
+
+  /* Other cells: prepend label */
+  .sched-block td:not(:first-child)::before {
+    flex-shrink: 0;
+    min-width: 66px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--text-lt);
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+
+  /* Toán tables (4 cols) */
+  .sched-block:has(.sh-math) td:nth-child(2)::before { content: 'Buổi 1'; }
+  .sched-block:has(.sh-math) td:nth-child(3)::before { content: 'Buổi 2'; }
+  .sched-block:has(.sh-math) td:nth-child(4)::before { content: 'Học phí'; }
+
+  /* KHTN table (3 cols) */
+  .sched-block:has(.sh-sci) td:nth-child(2)::before { content: 'Thời gian'; }
+  .sched-block:has(.sh-sci) td:nth-child(3)::before { content: 'Học phí'; }
+
+  /* Slot: horizontal layout in card */
+  .sched-block td .slot {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  /* Fee + none-tag styling on mobile */
+  .sched-block .fee { font-size: 0.78rem; padding: 4px 10px; }
+  .sched-block .none-tag { font-size: 0.95rem; font-weight: 700; color: var(--text-lt); font-style: normal; }
+
+  /* ── FOOTER ── */
+  footer { padding: 30px 16px 22px; }
+  .footer-name { font-size: 1.15rem; }
+  footer p { font-size: 0.82rem; line-height: 1.5; }
 }
