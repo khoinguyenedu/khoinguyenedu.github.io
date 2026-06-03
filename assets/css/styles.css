@@ -251,6 +251,7 @@ td { padding: 14px 18px; font-size: 0.9rem; vertical-align: middle; color: var(-
 .g9  { background: #F3E5F5; color: #6A1B9A; }
 .g9c { background: #FCE4EC; color: #880E4F; }
 .g10 { background: #FFF3E0; color: #E65100; }
+.g11 { background: #EDE7F6; color: #4527A0; }
 .g12 { background: #FBE9E7; color: #BF360C; }
 
 .slot { display: flex; flex-direction: column; gap: 3px; }
