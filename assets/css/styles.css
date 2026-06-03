@@ -245,18 +245,56 @@ td { padding: 14px 18px; font-size: 0.9rem; vertical-align: middle; color: var(-
 .mini-avatar:hover { transform: scale(1.15); z-index: 2; }
 .mini-avatars { display: inline-flex; }
 .mini-avatars .mini-avatar + .mini-avatar { margin-left: -10px; }
+.avatar-hot {
+  position: relative;
+  display: inline-block;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+}
+.hot-badge {
+  position: absolute;
+  top: -10px;
+  right: -15px;
+  z-index: 3;
+  min-width: 30px;
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #EF4444, #F97316);
+  color: #FFFFFF;
+  border: 1px solid #FFFFFF;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.35);
+  font-size: 0.58rem;
+  font-weight: 900;
+  line-height: 1.1;
+  text-align: center;
+  animation: hotBlink 0.85s ease-in-out infinite;
+}
+@keyframes hotBlink {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(1.12); }
+}
 .g6  { background: #E0F7FA; color: #006064; }
 .g7  { background: #E8F5E9; color: #2E7D32; }
 .g8  { background: #E3F2FD; color: #1565C0; }
 .g9  { background: #F3E5F5; color: #6A1B9A; }
 .g9c { background: #FCE4EC; color: #880E4F; }
 .g10 { background: #FFF3E0; color: #E65100; }
-.g11 { background: #EDE7F6; color: #4527A0; }
+.g11 { background: #E0F2FE; color: #075985; }
 .g12 { background: #FBE9E7; color: #BF360C; }
 
 .slot { display: flex; flex-direction: column; gap: 3px; }
 .slot-day  { font-weight: 700; font-size: 0.88rem; color: var(--text); }
 .slot-time { font-size: 0.78rem; color: var(--cyan); font-weight: 600; background: var(--cyan-lt); border-radius: 5px; padding: 2px 8px; display: inline-block; }
+.slot-note {
+  display: block;
+  max-width: 320px;
+  margin-top: 5px;
+  color: var(--text-lt);
+  font-size: 0.74rem;
+  font-weight: 500;
+  line-height: 1.45;
+}
 
 .fee { display: inline-block; border-radius: 8px; padding: 5px 12px; font-weight: 700; font-size: 0.82rem; white-space: nowrap; }
 .fee-hi { background: linear-gradient(135deg,#FFF8DC,#FFEAA0); color: #92400E; border: 1px solid #FCD34D; }
